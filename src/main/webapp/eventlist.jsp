@@ -37,7 +37,7 @@
     <script type="text/javascript" src="js/bootstrap-datetimepicker.js"></script>
     <script type="text/javascript" src="js/bootstrap-datetimepicker.zh-CN.js"></script>
     <link rel="stylesheet" href="css/bootstrap-datetimepicker.css">
-    <jsp:include page="index.jsp"/>
+    <jsp:include page="WEB-INF/navigation.jsp" />
 </head>
 <body>
 <div class="container-fluid" style="margin-top: 50px">

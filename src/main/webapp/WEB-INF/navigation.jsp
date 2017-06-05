@@ -35,11 +35,28 @@
     <script type="text/javascript" src="js/bootstrap-datetimepicker.js"></script>
     <script type="text/javascript" src="js/bootstrap-datetimepicker.zh-CN.js"></script>
     <link rel="stylesheet" href="css/bootstrap-datetimepicker.css">
-    <jsp:include page="WEB-INF/navigation.jsp" />
 </head>
 <body>
-<div style="margin-top: 60px">
-    <h1>资产管理系统</h1>
-</div>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#accset">
+                <span class="sr-only">导航条</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand">运维管理系统</a>
+        </div>
+        <div class="collapse navbar-collapse" id="accset">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="index.jsp">首页</a> </li>
+                <li><a href="eventlist.jsp">设备巡检</a> </li>
+                <li><a href="accset.jsp">资产管理</a> </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 </body>
 </html>
+
