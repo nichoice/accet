@@ -1,4 +1,4 @@
-var $table = $('#accset');
+var $table = $('#accset_list');
 
 //bootstrapTable使用中文
 $.extend($.fn.bootstrapTable.defaults, $.fn.bootstrapTable.locales['zh-CN']);
@@ -13,7 +13,7 @@ $(function () {
     "use strict";
 
     tableInit();
-    $('#accset').bootstrapTable('hideLoading');
+    $('#accset_list').bootstrapTable('hideLoading');
 })
 
 //初始化Table

@@ -11,8 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="icon" type="image/x-icon" href="icon/favicon_64.ico"/>
     <link rel="shortcut icon" type="image/x-icon" href="icon/favicon_64.ico"/>
-    <title>设备巡检</title>
-    <!-- jQuery -->
+    <title>资产管理</title>
     <script type="text/javascript" src="dependents/jquery/jquery.min.js"></script>
     <!-- bootstrap -->
     <script type="text/javascript" src="dependents/bootstrap/js/bootstrap.js"></script>
@@ -38,7 +37,7 @@
     <script type="text/javascript" src="js/bootstrap-datetimepicker.js"></script>
     <script type="text/javascript" src="js/bootstrap-datetimepicker.zh-CN.js"></script>
     <link rel="stylesheet" href="css/bootstrap-datetimepicker.css">
-    <jsp:include page="WEB-INF/navigation.jsp" />
+    <jsp:include page="WEB-INF/navigation.jsp"/>
 </head>
 <body>
 <div class="container-fluid" style="margin-top: 50px;">
@@ -87,67 +86,67 @@
            导出
         </button>
     </div>
-<div style="margin-top: 10px">
-    <table id="accset" class="table table-bordered"></table>
+
+    <table id="accset_list" class="table table-bordered" />
+
 </div>
-    <!-- 新增或修改弹框-->
-    <div class="modal fade" id="addAndUpdate" tabindex="-1" role="dialog" aria-labelledby="addAndUpdateLabel" style="margin-top: 500px;">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true"></span></button>
-                    <h4 class="modal-title" id="addAndUpdateLabel">新增资产信息</h4>
+<!-- 新增或修改弹框-->
+<div class="modal fade" id="addAndUpdate" tabindex="-1" role="dialog" aria-labelledby="addAndUpdateLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true"></span></button>
+                <h4 class="modal-title" id="addAndUpdateLabel">新增资产信息</h4>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" name="txt_type" class="form-control" id="txt_type" placeholder="操作类型">
+                <input type="hidden" name="txt_id" class="form-control" id="txt_id" placeholder="编号">
+                <div class="form-group">
+                    <label for="name">资产名称</label>
+                    <input type="text" name="name" class="form-control" id="name" placeholder="资产名称">
                 </div>
-                <div class="modal-body">
-                    <input type="hidden" name="txt_type" class="form-control" id="txt_type" placeholder="操作类型">
-                    <input type="hidden" name="txt_id" class="form-control" id="txt_id" placeholder="编号">
-                    <div class="form-group">
-                        <label for="name">资产名称</label>
-                        <input type="text" name="name" class="form-control" id="name" placeholder="资产名称">
-                    </div>
-                    <div class="form-group">
-                        <label for="model">资产型号</label>
-                        <input type="text" name="model" class="form-control" id="model" placeholder="资产名称">
-                    </div>
-                    <div class="form-group">
-                        <label for="status">资产状态</label>
-                        <input type="text" name="status" class="form-control" id="status" placeholder="资产状态">
-                    </div>
-                    <div class="form-group">
-                        <label for="brand">资产品牌</label>
-                        <input type="text" name="brand" class="form-control" id="brand" placeholder="资产品牌">
-                    </div>
-                    <div class="form-group">
-                        <label for="buy">采购日期</label>
-                        <input type="text" name="buy" class="form-control" id="buy" placeholder="名称">
-                    </div>
-                    <div class="form-group">
-                        <label for="oem">工程商</label>
-                        <input type="text" name="buy" class="form-control" id="oem" placeholder="名称">
-                    </div>
-                    <div class="form-group">
-                        <label for="installation">安装日期</label>
-                        <input type="text" name="installation" class="form-control" id="installation" placeholder="名称">
-                    </div>
-                    <div class="form-group">
-                        <label for="address">安装地点</label>
-                        <input type="text" name="address" class="form-control" id="address" placeholder="名称">
-                    </div>
-                    <div class="form-group">
-                        <label for="warranty">保修截止</label>
-                        <input type="text" name="buy" class="form-control" id="warranty" placeholder="保修截止">
-                    </div>
+                <div class="form-group">
+                    <label for="model">资产型号</label>
+                    <input type="text" name="model" class="form-control" id="model" placeholder="资产型号">
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal"><span
-                            class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭
-                    </button>
-                    <button type="button" id="btn_add_update_submit" class="btn btn-primary btn-sm"
-                            data-dismiss="modal"><span
-                            class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存
-                    </button>
+                <div class="form-group">
+                    <label for="status">资产状态</label>
+                    <input type="text" name="status" class="form-control" id="status" placeholder="资产状态">
                 </div>
+                <div class="form-group">
+                    <label for="brand">资产品牌</label>
+                    <input type="text" name="brand" class="form-control" id="brand" placeholder="资产品牌">
+                </div>
+                <div class="form-group">
+                    <label for="buy">采购日期</label>
+                    <input type="text" name="buy" class="form-control" id="buy" placeholder="名称">
+                </div>
+                <div class="form-group">
+                    <label for="oem">工程商</label>
+                    <input type="text" name="buy" class="form-control" id="oem" placeholder="名称">
+                </div>
+                <div class="form-group">
+                    <label for="installation">安装日期</label>
+                    <input type="text" name="installation" class="form-control" id="installation" placeholder="名称">
+                </div>
+                <div class="form-group">
+                    <label for="address">安装地点</label>
+                    <input type="text" name="address" class="form-control" id="address" placeholder="名称">
+                </div>
+                <div class="form-group">
+                    <label for="warranty">保修截止</label>
+                    <input type="text" name="buy" class="form-control" id="warranty" placeholder="保修截止">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal"><span
+                        class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭
+                </button>
+                <button type="button" id="btn_add_update_submit" class="btn btn-primary btn-sm"
+                        data-dismiss="modal"><span
+                        class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存
+                </button>
             </div>
         </div>
     </div>
