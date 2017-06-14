@@ -11,10 +11,11 @@
     </resultMap>
 
     <resultMap id="jiegou" type="com.nic.pojo.Resultmap">
-        <result column="code" property="code" jdbcType="INTEGER" />
-        <result column="time" property="time" jdbcType="TIMESTAMP" />
-        <result column="name" property="name" jdbcType="VARCHAR" />
-        <result column="note" property="note" jdbcType="VARCHAR" />
+        <result column="d_name" property="d_name" jdbcType="INTEGER" />
+        <result column="d_address" property="d_address" jdbcType="TIMESTAMP" />
+        <result column="c_name" property="c_name" jdbcType="VARCHAR" />
+        <result column="t_name" property="t_name" jdbcType="VARCHAR" />
+        <result column="time" property="time" jdbcType="VARCHAR" />
     </resultMap>
 
     <sql id="Devices_List">
@@ -54,11 +55,11 @@
 
     <select id="find" resultMap="jiegou" parameterType="java.util.HashMap">
         select
-        e.time , d.name , t.note
+        d.name as d_name, d.address as d_address , t.name as t_name , e.code as e_name , e.time as time
         from
         events e
-        left join devices d on e.device = d.type
-        left join event_type t on d.type = t.type
+        left join devices d on e.device = d.guid
+        left join event_type t on e.type = t.type
         where
         1 = 1
         <if test="type != null and type != '' ">
